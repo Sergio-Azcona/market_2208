@@ -27,4 +27,33 @@ class Market
     vendor_with_item
   end
 
+  def sorted_item_list
+    sorted_goods = Set.new
+    @vendors.find_all do |vendor|
+      vendor.inventory.each do |item, quantity|
+        sorted_goods << item.name 
+      end
+    end
+    sorted_goods.sort
+  end
+
+
+  def overstocked_items
+    item_overflow = []
+    
+    @vendors.each do |vendor|
+       
+      vendor.inventory.find_all do |item, stock|
+        if stock > 50
+          item_overflow << item.name 
+        
+          # if item_overflow
+        # require 'pry';binding.pry
+          # end
+
+        end
+     end
+    end
+  end
+
 end

@@ -20,6 +20,4 @@ class Vendor
     end
     expected_income 
   end
-
-
 end
