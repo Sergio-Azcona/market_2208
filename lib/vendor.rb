@@ -13,6 +13,13 @@ class Vendor
     @inventory[add_item] += add_quantity
   end
 
+  def potential_revenue
+    expected_income = 0
+    @inventory.sum do |item, stock|
+      expected_income += item.price.delete("$").to_f * stock
+    end
+    expected_income 
+  end
 
 
 end
